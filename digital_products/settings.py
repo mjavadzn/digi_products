@@ -33,8 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
     'products',
-    'rest_framework'
+    'users',
+
+
 ]
 
 MIDDLEWARE = [
@@ -107,3 +110,14 @@ MEDIA_URL = '/media/'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authorization
+AUTH_USER_MODEL = 'users.User'
+
+# Cach
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
